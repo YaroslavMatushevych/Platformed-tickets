@@ -49,13 +49,22 @@ const TicketCard: React.FC<TicketCardProps> = memo(({ ticket }) => {
       <Text color="gray.400" mt={1} fontSize="sm">
         {ticket.description}
       </Text>
-      <HStack justify="space-between" mt={4}>
+      <HStack justify="space-between" mt={2}>
         <Badge colorPalette={priorityColor}>{priorityLabel}</Badge>
-        <Badge colorPalette="gray">{statusLabel}</Badge>
+        <Badge
+          style={{
+            position: "relative",
+            top: "-8px",
+            padding: "8px",
+          }}
+          colorPalette="gray"
+        >
+          {statusLabel}
+        </Badge>
       </HStack>
 
       {ticket.assignee && (
-        <HStack mt={4} align="center">
+        <HStack mt={2} align="center">
           <Avatar size="sm" src={ticket.assignee.avatarUrl} />
           <Text color="white">{ticket.assignee.name}</Text>
         </HStack>
